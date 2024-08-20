@@ -15,23 +15,22 @@
 
      
      
-     let parameters = {
-        "name": "John"
-      };
-      
-      let custom = new CustomEvent("label", "my.action", parameters);
-      ;
-     
-     
-     // Czekamy na załadowanie całej strony
+     let custom = {
+        action: 'my.action',
+        label: 'My Custom Event',
+        params: {
+            name: "John"
+        }
+    };
+    
+    // Czekamy na załadowanie całej strony
     document.addEventListener("DOMContentLoaded", function() {
         // Znajdujemy przycisk za pomocą klasy
         const signUpButton = document.querySelector('.btn');
-
+    
         // Dodajemy nasłuchiwacz kliknięcia
         signUpButton.addEventListener('click', function() {
-            Synerise.Tracker.send(custom)
-
+            Synerise.Tracker.trackCustomEvent(custom);
             console.log("true");
         });
-    });
+    })
