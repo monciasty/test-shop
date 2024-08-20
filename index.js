@@ -13,16 +13,7 @@
      z.onreadystatechange=null;}};})(window,document,'script',
      '//web.snrbox.com/synerise-javascript-sdk.min.js','SR', 'onSyneriseLoad');
 
-     
-     
-     let custom = {
-        action: 'my.action',
-        label: 'My Custom Event',
-        params: {
-            name: "John"
-        }
-    };
-    
+
     // Czekamy na załadowanie całej strony
     document.addEventListener("DOMContentLoaded", function() {
         // Znajdujemy przycisk za pomocą klasy
@@ -30,7 +21,9 @@
     
         // Dodajemy nasłuchiwacz kliknięcia
         signUpButton.addEventListener('click', function() {
-            Synerise.Tracker.trackCustomEvent(custom);
+            SR.event.trackCustomEvent('custom.event', {
+                test: "test"
+            }, "cart" );
             console.log("true");
         });
     })
