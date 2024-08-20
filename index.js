@@ -32,6 +32,6 @@
         signUpButton.addEventListener('click', function() {
             Synerise.Tracker.send(custom)
 
-            alert("true");
+            console.log("true");
         });
     });
