@@ -14,16 +14,17 @@
      '//web.snrbox.com/synerise-javascript-sdk.min.js','SR', 'onSyneriseLoad');
 
 
-    // Czekamy na załadowanie całej strony
-    document.addEventListener("DOMContentLoaded", function() {
-        // Znajdujemy przycisk za pomocą klasy
-        const signUpButton = document.querySelector('.btn');
-    
-        // Dodajemy nasłuchiwacz kliknięcia
-        signUpButton.addEventListener('click', function() {
-            SR.event.trackCustomEvent('custom.event', {
-                test: "test"
-            }, "cart" );
+     $(document).ready(function() {
+        // Obsługa kliknięcia przycisku
+        $('.promobutton').on('click', function() {
+            SR.event.trackCustomEvent(
+                "custom.track", // event action name
+                { // additional parameters
+                    "object": "Shopping center",
+                    "entries": 27
+                }
+            )
+
             console.log("true");
         });
-    })
+    });
