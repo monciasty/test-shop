@@ -12,3 +12,26 @@
      if(!rdy||/complete|loaded/.test(z.readyState)){s[i]();z.onload = null;
      z.onreadystatechange=null;}};})(window,document,'script',
      '//web.snrbox.com/synerise-javascript-sdk.min.js','SR', 'onSyneriseLoad');
+
+     
+     
+     let parameters = {
+        "name": "John"
+      };
+      
+      let custom = new CustomEvent("label", "my.action", parameters);
+      ;
+     
+     
+     // Czekamy na załadowanie całej strony
+    document.addEventListener("DOMContentLoaded", function() {
+        // Znajdujemy przycisk za pomocą klasy
+        const signUpButton = document.querySelector('.btn');
+
+        // Dodajemy nasłuchiwacz kliknięcia
+        signUpButton.addEventListener('click', function() {
+            Synerise.Tracker.send(custom)
+
+            alert("true");
+        });
+    });
