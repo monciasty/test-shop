@@ -1,5 +1,21 @@
 
-    function onSyneriseLoad() {
+$('.btn-shopnow').click(function(){ window.location = 'shop.html'}); /*go to shop main page by button*/
+$('.pro').click(function(){ window.location = 'sproduct.html'}); /*go to product card for all div's*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function onSyneriseLoad() {
         SR.init({
             'trackerKey':'57ae98e4-d5f5-4b57-85fd-526337fba4fd',
         });
@@ -13,18 +29,3 @@
      z.onreadystatechange=null;}};})(window,document,'script',
      '//web.snrbox.com/synerise-javascript-sdk.min.js','SR', 'onSyneriseLoad');
 
-
-     $(document).ready(function() {
-        // Obsługa kliknięcia przycisku
-        $('.promobutton').on('click', function() {
-            SR.event.trackCustomEvent(
-                "custom.track", // event action name
-                { // additional parameters
-                    "object": "Shopping center",
-                    "entries": 27
-                }
-            )
-
-            console.log("true");
-        });
-    });
